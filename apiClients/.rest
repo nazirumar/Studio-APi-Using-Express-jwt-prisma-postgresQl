@@ -1,0 +1,156 @@
+### Get all users
+GET http://localhost:5000/api/user/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+### Create a user
+POST http://localhost:5000/api/user
+Content-Type: application/json
+
+{
+  "name": "AdminTest",
+  "email": "admin@test.com",
+  "password": "password123",
+  "role": "ADMIN"
+}
+
+### Update a user
+PUT http://localhost:5000/api/user/a77f4b16-bc71-4b89-acb1-d08af18f614a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "password123",
+  "role": "ADMIN"
+}
+
+
+### Get studio
+GET http://localhost:5000/api/studio/studios/all
+Content-Type: application/json
+Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+
+
+
+### Create a Studio
+POST http://localhost:5000/api/studio
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+{
+  "name": "Nazbeen Studio",
+  "address": "123 Photography Lane",
+  "phoneNumber": "08140011216",
+  "email": "NazbeenUpdated@example.com",
+  "images": [
+    {
+      "description": "New Order Items Price Updated",
+      "softCopyPrice": 1000.00
+    }
+  ]
+}
+
+
+### get Image
+GET http://localhost:5000/api/image/images
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+
+### Create an Image
+POST http://localhost:5000/api/image
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+{
+  "description": "Event Photoshoot",
+  "softCopyPrice": 400.00,
+  "studioId": "695bf002-f30c-45a3-b207-36d50b4fa26d"
+}
+
+
+### Update an Image
+PUT http://localhost:5000/api/image/a631244e-7060-4b9c-b44d-7188259c7e18
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+{
+  "description": "Event Photoshoot",
+  "softCopyPrice": 500.00
+
+}
+
+
+### Create an Order
+POST http://localhost:5000/api/order
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+{
+  "userId": "695bf002-f30c-45a3-b207-36d50b4fa26d"
+}
+
+### Get Order
+GET http://localhost:5000/api/order/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+### Update Order
+PUT http://localhost:5000/api/order/f5a99f7a-ac6e-4672-91dd-ee43889ee3b0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+{
+  "userId": "695bf002-f30c-45a3-b207-36d50b4fa26d",
+  "isPaid": true
+}
+
+### Get OrderItem
+GET http://localhost:5000/api/orderItem/orderItems
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+
+
+### Create OrderItem
+POST http://localhost:5000/api/orderItem
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+{
+ "orderId": "4d4aef3c-4a9f-4408-83fd-7bae3e71f187",
+ "imageId": "dff78873-3aff-41cc-88c3-cd5f98165cd8",
+ "quantity": 2
+}
+
+
+
+
+### Create a Booking
+POST http://localhost:5000/api/booking
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+{
+  "userId": "a77f4b16-bc71-4b89-acb1-d08af18f614a",
+  "imageId": "a631244e-7060-4b9c-b44d-7188259c7e18",
+  "quantity": 1
+}
+
+### Get a Payment
+GET http://localhost:5000/api/payment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+### Create a Payment
+POST http://localhost:5000/api/payment
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwLTQ4MzQtNDU1OC04ZmYwLTdlMTZiYWQ0MGE0YSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTczOTQ4MDYxNCwiZXhwIjoxNzQwMDg1NDE0fQ.IPFWYWlGOmzvNeLDVICQ2usRmwr2l4s26_p3bpp8Obo
+
+{
+  "orderId": "ab5dcf2c-fec8-48b0-b8f3-a08e05131a49",
+  "amount": 200300
+}

@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Image" ALTER COLUMN "softCopyPrice" DROP DEFAULT,
+ALTER COLUMN "hardCopyPrice" DROP DEFAULT;
