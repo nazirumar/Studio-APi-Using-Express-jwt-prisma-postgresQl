@@ -8,8 +8,8 @@ POST http://localhost:5000/api/user
 Content-Type: application/json
 
 {
-  "name": "AdminTest",
-  "email": "admin@test.com",
+  "name": "test",
+  "email": "test@gmail.com",
   "password": "password123",
   "role": "ADMIN"
 }
@@ -44,7 +44,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIwNTU2NTIwL
   "name": "Nazbeen Studio",
   "address": "123 Photography Lane",
   "phoneNumber": "08140011216",
-  "email": "NazbeenUpdated@example.com",
+  "email": "admin@example.com",
   "images": [
     {
       "description": "New Order Items Price Updated",

@@ -7,25 +7,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
-enum Role {
-  ADMIN
-  USER
-  STAFF
-}
-
 model User {
-  id        String   @id @default(uuid())
-  name      String   @db.VarChar(50)
-  email     String   @unique @db.VarChar(100)
-  role      Role     @default(USER)
+  id        String    @id @default(uuid())
+  name      String    @db.VarChar(50)
+  email     String    @unique @db.VarChar(100)
   password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // Relationships
-  orders    Order[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  role      Role      @default(USER)
   bookings  Booking[]
+  orders    Order[]
 }
 
 model PhotographyStudio {
@@ -36,74 +27,69 @@ model PhotographyStudio {
   email       String?  @unique @db.VarChar(100)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
-
-  Images Image[]
+  Images      Image[]
 }
 
 model Image {
-  id             String   @id @default(uuid())
-  description    String?  @db.VarChar(255)
-  softCopyPrice  Decimal?  
-  hardCopyPrice  Decimal? 
-  studioId       String
-  studio         PhotographyStudio? @relation(fields: [studioId], references: [id], onDelete: Cascade)
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-
-  // Relationships
-  bookings       Booking[]
-  orderItems     OrderItem[]
+  id            String            @id @default(uuid())
+  description   String?           @db.VarChar(255)
+  softCopyPrice Decimal?
+  hardCopyPrice Decimal?
+  studioId      String
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+  bookings      Booking[]
+  studio        PhotographyStudio @relation(fields: [studioId], references: [id], onDelete: Cascade)
+  orderItems    OrderItem[]
 }
-
-
 
 model Booking {
   id        String   @id @default(uuid())
-  userId    String   
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
   imageId   String
-  image     Image    @relation(fields: [imageId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  // Relationships
-  orderId   String?  // Allow null if booking isn't linked to an order
+  orderId   String?
+  image     Image    @relation(fields: [imageId], references: [id], onDelete: Cascade)
   order     Order?   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Order {
-  id        String   @id @default(uuid())
-  userId    String   
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  isPaid    Boolean  @default(false) // New field to indicate if the order is paid
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  // Relationships
+  id         String      @id @default(uuid())
+  userId     String
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  isPaid     Boolean     @default(false)
+  bookings   Booking[]
+  user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   orderItems OrderItem[]
-  bookings   Booking[]   // Changed to plural for consistency
-  payments   Payment[]   // Changed to plural
+  payments   Payment[]
 }
 
 model OrderItem {
-  id        String   @id @default(uuid())
-  orderId   String
-  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
-  imageId   String
-  image     Image    @relation(fields: [imageId], references: [id], onDelete: Cascade)
-  quantity  Int      @default(1)
+  id         String   @id @default(uuid())
+  orderId    String
+  imageId    String
+  quantity   Int      @default(1)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
   totalPrice Decimal  @default(0.0)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  image      Image    @relation(fields: [imageId], references: [id], onDelete: Cascade)
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
 }
 
 model Payment {
   id        String   @id @default(uuid())
-  orderId   String  
-  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
   amount    Decimal  @default(0.0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}
+
+enum Role {
+  ADMIN
+  USER
+  STAFF
 }
